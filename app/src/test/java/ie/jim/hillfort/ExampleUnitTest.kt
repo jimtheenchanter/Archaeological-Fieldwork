@@ -1,4 +1,4 @@
-package ie.jim.hillforthere
+package ie.jim.hillfort
 
 import org.junit.Test
 
