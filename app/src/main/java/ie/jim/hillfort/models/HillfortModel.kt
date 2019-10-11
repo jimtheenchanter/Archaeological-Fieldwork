@@ -1,5 +1,6 @@
 package ie.jim.hillfort.models
 
-class HillfortModel {
-    var title: String = ""
-}
+data class HillfortModel (
+    var title: String = "",
+    var description: String = ""
+)
