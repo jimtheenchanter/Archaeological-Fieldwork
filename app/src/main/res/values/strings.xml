@@ -8,4 +8,5 @@
     <string name="activity_addTitle">Yet another failure</string>
     <string name="button_addImage"> Add Image </string>
     <string name="save_hillfort"> Save Hillfort </string>
+    <string name="select_hillfort_image">Select Hillfort Image</string>
 </resources>

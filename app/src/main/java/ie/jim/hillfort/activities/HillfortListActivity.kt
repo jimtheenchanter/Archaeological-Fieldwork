@@ -46,13 +46,15 @@ class HillfortListActivity : AppCompatActivity(), AnkoLogger, HillfortListener {
     }
 
 
-    // pass the selected placemark to the activity - this is enabled via the @parcelable mechanism
+    // pass the selected hillfort to the activity - this is enabled via the @parcelable mechanism
     override fun onHillfortClick(hillfort: HillfortModel) {
         startActivityForResult(intentFor<HillfortActivity>().putExtra("hillfort_edit", hillfort), 0)
     }
 
+
+    //method to refresh model on the view to display new Hillfort
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        recyclerView.adapter?.notifyDataSetChanged()
+        recyclerView.adapter?.notifyDataSetChanged() // instruct the recyclerView's adapter that the model has been updated
         super.onActivityResult(requestCode, resultCode, data)
     }
 

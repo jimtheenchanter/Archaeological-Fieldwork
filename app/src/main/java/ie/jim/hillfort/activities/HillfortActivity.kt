@@ -1,10 +1,14 @@
 package ie.jim.hillfort.activities
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import ie.jim.hillfort.R
+import ie.jim.hillfort.helpers.readImage
+import ie.jim.hillfort.helpers.readImageFromPath
+import ie.jim.hillfort.helpers.showImagePicker
 import ie.jim.hillfort.main.MainApp
 import ie.jim.hillfort.models.HillfortModel
 import kotlinx.android.synthetic.main.activity_hillfort.*
@@ -18,6 +22,8 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
     var hillfort = HillfortModel()
     //reference the MainApp object.
    lateinit var app : MainApp
+     // generate id for the image request function so activity can confirm when complete to avoid confusion
+     val IMAGE_REQUEST = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,6 +41,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             hillfortName.setText(hillfort.title)
             description.setText(hillfort.description)
             btnAdd.setText(R.string.save_hillfort)
+            hillfortImage.setImageBitmap(readImageFromPath(this, hillfort.image)) //image to appear in edit mode
         }
 
         btnAdd.setOnClickListener() {
@@ -44,7 +51,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                 toast(R.string.hint_hillfortName)
             } else {
                 if(edit) {
-                    app.hillforts.update(hillfort.copy())
+                    app.hillforts.update(hillfort.copy()) //makes a copy of the hillfort
                 } else {
                     app.hillforts.create(hillfort.copy())
                 }
@@ -54,6 +61,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                 finish()
             }
             chooseImage.setOnClickListener {
+                showImagePicker(this, IMAGE_REQUEST)
                 info("Select image")
             }
 
@@ -63,6 +71,8 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
         return super.onCreateOptionsMenu(menu)
     }
 
+
+    // activity that checks that a button is pressed and reports back boolean
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         when (item?.itemId) {
             R.id.item_cancel -> {
@@ -70,6 +80,19 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             }
         }
         return super.onOptionsItemSelected(item)
+    }
+
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        when (requestCode) {
+            IMAGE_REQUEST -> {
+                if (data != null) {
+                    hillfort.image = data.getData().toString()
+                   hillfortImage.setImageBitmap(readImage(this, resultCode, data))
+                }
+            }
+        }
     }
 }
 
