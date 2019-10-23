@@ -34,14 +34,21 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
         info("Hillfort Activity initialized")
 
         var edit = false
-
+        //read back the placemark, and place its field into the view controls.
         if (intent.hasExtra("hillfort_edit")) {
-            hillfort = intent.extras?.getParcelable<HillfortModel>("hillfort_edit")!!
             edit = true
+            hillfort = intent.extras?.getParcelable<HillfortModel>("hillfort_edit")!!
+
             hillfortName.setText(hillfort.title)
             description.setText(hillfort.description)
-            btnAdd.setText(R.string.save_hillfort)
             hillfortImage.setImageBitmap(readImageFromPath(this, hillfort.image)) //image to appear in edit mode
+           // if (hillfort.image != null) {
+                chooseImage.setText(R.string.change_image)
+            //}
+
+            btnAdd.setText(R.string.save_hillfort)  // change button text if editing an existing hillfort
+//            chooseImage.setText(R.string.change_image) // change button text if editing an existing hillfort
+
         }
 
         btnAdd.setOnClickListener() {
@@ -55,7 +62,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                 } else {
                     app.hillforts.create(hillfort.copy())
                 }
-                }
+               }
                 info("add Button Pressed: $hillfortName")
                 setResult(AppCompatActivity.RESULT_OK)
                 finish()
@@ -73,7 +80,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
 
 
     // activity that checks that a button is pressed and reports back boolean
-    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item?.itemId) {
             R.id.item_cancel -> {
                 finish()
@@ -86,10 +93,12 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
+            // recover the name only when IMAGE_REQUEST is seen
             IMAGE_REQUEST -> {
                 if (data != null) {
                     hillfort.image = data.getData().toString()
-                   hillfortImage.setImageBitmap(readImage(this, resultCode, data))
+                    hillfortImage.setImageBitmap(readImage(this, resultCode, data))
+                    chooseImage.setText(R.string.change_image)
                 }
             }
         }

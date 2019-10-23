@@ -19,7 +19,7 @@ class HillfortMemStore : HillfortStore, AnkoLogger {
     }
 
     override fun create(hillfort: HillfortModel) {
-        // generat a new ID when we create placemarks.
+        // generate a new ID when we create placemarks.
         hillfort.id = getId()
         hillforts.add(hillfort)
         logAll();
@@ -28,8 +28,9 @@ class HillfortMemStore : HillfortStore, AnkoLogger {
     override fun update(hillfort: HillfortModel) {
         var foundHillfort: HillfortModel? = hillforts.find { p -> p.id == hillfort.id }
         if (foundHillfort != null) {
-            foundHillfort.title = hillfort.title
-            foundHillfort.description = hillfort.description
+            foundHillfort.title = hillfort.title   //update title
+            foundHillfort.description = hillfort.description // update description
+            foundHillfort.image = hillfort.image // update image
             logAll()
         }
     }
