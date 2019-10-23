@@ -11,9 +11,11 @@ import ie.jim.hillfort.helpers.readImageFromPath
 import ie.jim.hillfort.helpers.showImagePicker
 import ie.jim.hillfort.main.MainApp
 import ie.jim.hillfort.models.HillfortModel
+import ie.jim.hillfort.models.Location
 import kotlinx.android.synthetic.main.activity_hillfort.*
 import org.jetbrains.anko.AnkoLogger // allow console logging
 import org.jetbrains.anko.info  // allow info windows
+import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.toast
 
 class HillfortActivity : AppCompatActivity(), AnkoLogger {
@@ -24,6 +26,9 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
    lateinit var app : MainApp
      // generate id for the image request function so activity can confirm when complete to avoid confusion
      val IMAGE_REQUEST = 1
+
+    val LOCATION_REQUEST = 2
+    var location = Location(52.245696, -7.139102, 15f)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -67,10 +72,21 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                 setResult(AppCompatActivity.RESULT_OK)
                 finish()
             }
-            chooseImage.setOnClickListener {
+
+        chooseImage.setOnClickListener {
                 showImagePicker(this, IMAGE_REQUEST)
                 info("Select image")
             }
+
+
+//        hillfortLocation.setOnClickListener {
+//            val location = Location(52.245696, -7.139102, 15f)
+//            startActivity (intentFor<MapActivity>().putExtra("location", location))
+//        }
+
+        hillfortLocation.setOnClickListener {
+            startActivityForResult(intentFor<MapActivity>().putExtra("location", location), LOCATION_REQUEST)
+        }
 
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -93,12 +109,16 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
-            // recover the name only when IMAGE_REQUEST is seen
             IMAGE_REQUEST -> {
                 if (data != null) {
                     hillfort.image = data.getData().toString()
                     hillfortImage.setImageBitmap(readImage(this, resultCode, data))
                     chooseImage.setText(R.string.change_image)
+                }
+            }
+            LOCATION_REQUEST -> {
+                if (data != null) {
+                    location = data.extras?.getParcelable<Location>("location")!!
                 }
             }
         }
