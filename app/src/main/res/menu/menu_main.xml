@@ -8,5 +8,9 @@
         android:title="@string/menu_addHillfort"
         app:showAsAction="always" />
 
-
+<!--    <item-->
+<!--        android:id="@+id/logout"-->
+<!--        android:icon="@android:drawable/ic_menu_home"-->
+<!--        android:title="@string/menu_addHillfort"-->
+<!--        app:showAsAction="always" />-->
 </menu>

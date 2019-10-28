@@ -3,6 +3,8 @@
 package ie.jim.hillfort.main
 
 import android.app.Application
+import ie.jim.hillfort.HillfortStore
+import ie.jim.hillfort.models.HillfortJSONStore
 import ie.jim.hillfort.models.HillfortMemStore
 import ie.jim.hillfort.models.HillfortModel
 import org.jetbrains.anko.AnkoLogger
@@ -11,10 +13,11 @@ import org.jetbrains.anko.info
 class MainApp : Application(), AnkoLogger {
 
 //    val hillforts = ArrayList<HillfortModel>()
-    val hillforts = HillfortMemStore()
+      lateinit var hillforts : HillfortStore
 
     override fun onCreate() {
         super.onCreate()
+        hillforts = HillfortJSONStore(applicationContext)
         info("Hillfort Here! started")
 //        hillforts.add(HillfortModel("One", "About one..."))
 //        hillforts.add(HillfortModel("Two", "About two..."))

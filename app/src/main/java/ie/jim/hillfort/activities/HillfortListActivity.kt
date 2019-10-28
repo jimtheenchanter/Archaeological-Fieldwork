@@ -31,7 +31,19 @@ class HillfortListActivity : AppCompatActivity(), AnkoLogger, HillfortListener {
         recyclerView.layoutManager = layoutManager
 //        recyclerView.adapter = HillfortAdapter(app.hillforts)
 //        recyclerView.adapter = HillfortAdapter(app.hillforts.findAll())
-        recyclerView.adapter = HillfortAdapter(app.hillforts.findAll(), this)
+//        recyclerView.adapter = HillfortAdapter(app.hillforts.findAll(), this)
+        loadHillforts()
+
+    }
+
+
+    private fun loadHillforts() {
+        showHillforts(app.hillforts.findAll())
+    }
+
+    fun showHillforts (hillforts: List<HillfortModel>) {
+        recyclerView.adapter = HillfortAdapter(hillforts, this)
+        recyclerView.adapter?.notifyDataSetChanged()
     }
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.menu_main, menu)
@@ -54,8 +66,9 @@ class HillfortListActivity : AppCompatActivity(), AnkoLogger, HillfortListener {
 
     //method to refresh model on the view to display new Hillfort
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-        recyclerView.adapter?.notifyDataSetChanged() // instruct the recyclerView's adapter that the model has been updated
-        super.onActivityResult(requestCode, resultCode, data)
+//        recyclerView.adapter?.notifyDataSetChanged() // instruct the recyclerView's adapter that the model has been updated
+        loadHillforts()
+       super.onActivityResult(requestCode, resultCode, data)
     }
 
 }
