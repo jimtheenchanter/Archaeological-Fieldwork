@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import ie.jim.hillfort.R
+import ie.jim.hillfort.R // access resources
 import ie.jim.hillfort.helpers.readImage
 import ie.jim.hillfort.helpers.readImageFromPath
 import ie.jim.hillfort.helpers.showImagePicker
@@ -41,7 +41,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
         info("Hillfort Activity initialized")
 
         var edit = false
-        //read back the placemark, and place its field into the view controls.
+        //read back the hillfort, and place its field into the view controls.
         if (intent.hasExtra("hillfort_edit")) {
             edit = true
             hillfort = intent.extras?.getParcelable<HillfortModel>("hillfort_edit")!!
@@ -49,10 +49,10 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             hillfortName.setText(hillfort.title)
             description.setText(hillfort.description)
             hillfortImage.setImageBitmap(readImageFromPath(this, hillfort.image)) //image to appear in edit mode
-           // if (hillfort.image != null) {
+//            if (hillfort.image != null) {
                 chooseImage.setText(R.string.change_image)
-            //}
-
+//            }
+//      visitedHillfort.setText(hi)
             btnAdd.setText(R.string.save_hillfort)  // change button text if editing an existing hillfort
 //            chooseImage.setText(R.string.change_image) // change button text if editing an existing hillfort
 
@@ -111,9 +111,16 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             }
         }
         return super.onOptionsItemSelected(item)
-    }
 
-// recover and save the location when the maps activity finishes:
+        when (item?.itemId) {
+
+            R.id.item_delete -> {
+                       finish()    }
+        }
+        }
+//    }
+
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         when (requestCode) {
@@ -124,6 +131,7 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
                     chooseImage.setText(R.string.change_image)
                 }
             }
+            // recover and save the location when the maps activity finishes:
             LOCATION_REQUEST -> {
                 if (data != null) {
                     val location = data.extras?.getParcelable<Location>("location")!!

@@ -8,9 +8,19 @@
         android:title="@string/menu_addHillfort"
         app:showAsAction="always" />
 
-<!--    <item-->
-<!--        android:id="@+id/logout"-->
-<!--        android:icon="@android:drawable/ic_menu_home"-->
-<!--        android:title="@string/menu_addHillfort"-->
-<!--        app:showAsAction="always" />-->
+    <item
+        android:id="@+id/logout"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="@string/menu_logout"
+/>
+    <item
+        android:id="@+id/settings"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="@string/menu_settings"
+        />
+    <item
+        android:id="@+id/stats"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="@string/menu_stats"
+        />
 </menu>

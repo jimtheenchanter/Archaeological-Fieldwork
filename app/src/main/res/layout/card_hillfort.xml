@@ -35,5 +35,22 @@
             android:layout_below="@id/hillfortName"
             android:layout_toEndOf="@+id/imageIcon"/>
 
+        <TextView
+            android:id="@+id/longitude"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/description"
+            android:layout_toRightOf="@+id/imageIcon"
+            android:textSize="5sp"/>
+
+
+        <TextView
+            android:id="@+id/latitude"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/description"
+            android:layout_toRightOf="@+id/longitude"
+            android:textSize="5sp"/>
+
     </RelativeLayout>
 </androidx.cardview.widget.CardView>

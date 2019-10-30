@@ -19,7 +19,7 @@ fun showImagePicker(parent: Activity, id: Int) {
     intent.addCategory(Intent.CATEGORY_OPENABLE) // sho the categories of images available on device
     val chooser = Intent.createChooser(intent, R.string.select_hillfort_image.toString())
     parent.startActivityForResult(chooser, id) // run chooser bit and check id
-                                               // matches to cofirm task completion
+                                               // matches to conirm task completion
 }
 
 // function to display the image

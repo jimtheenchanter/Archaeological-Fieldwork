@@ -1,59 +1,70 @@
 package ie.jim.hillfort.activities
 
-//import android.content.Context
-//import android.os.Bundle
-//import android.os.Handler
-//import android.support.v7.app.AppCompatActivity
-//import androidx.appcompat.app.AppCompatActivity
-//import ie.jim.hillfort.R
-//
-//class SplashActivity: AppCompatActivity() {
-//
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        setContentView(R.layout.activity_splash)
-//
-//        scheduleSplashScreen()
-//    }
-//
-//    private fun scheduleSplashScreen() {
-//        val splashScreenDuration = getSplashScreenDuration()
-//        Handler().postDelayed(
-//            {
-//                // After the splash screen duration, route to the right activities
-//                val user = UserDb.getCurrentUser()
-//                routeToAppropriatePage(user)
-//                finish()
-//            },
-//            splashScreenDuration
-//        )
-//    }
-//
-//    private fun getSplashScreenDuration(): Long {
-//        val sp = getPreferences(Context.MODE_PRIVATE)
-//        val prefKeyFirstLaunch = "pref_first_launch"
-//
-//        return when(sp.getBoolean(prefKeyFirstLaunch, true)) {
-//            true -> {
-//                // If this is the first launch, make it slow (> 3 seconds) and set flag to false
-//                sp.edit().putBoolean(prefKeyFirstLaunch, false).apply()
-//                5000
-//            }
-//            false -> {
-//                // If the user has launched the app, make the splash screen fast (<= 1 seconds)
-//                1000
-//            }
-//        }
-//    }
-//
-//    private fun routeToAppropriatePage(user: User) {
-//        // Example routing
-//        when {
-//            user == null -> OnboardingActivity.start(this)
-//            user.hasPhoneNumber() -> EditProfileActivity.start(this)
-//            user.hasSubscriptionExpired() -> PaymentPlansActivity.start(this)
-//            else -> HomeActivity.start(this)
-//        }
-//    }
-//
-//}
+/*
+ * Copyright (c) 2019 Razeware LLC
+ *
+ *  Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ *  The above copyright notice and this permission notice shall be included in
+ *  all copies or substantial portions of the Software.
+ *
+ *  Notwithstanding the foregoing, you may not use, copy, modify, merge, publish,
+ *  distribute, sublicense, create a derivative work, and/or sell copies of the
+ *  Software in any work that is designed, intended, or marketed for pedagogical or
+ *  instructional purposes related to programming, coding, application development,
+ *  or information technology.  Permission for such use, copying, modification,
+ *  merger, publication, distribution, sublicensing, creation of derivative works,
+ *  or sale is expressly withheld.
+ *
+ *  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ *  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ *  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ *  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ *  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+ *  THE SOFTWARE.
+ */
+
+import android.content.Intent
+import android.os.Bundle
+import android.os.Handler
+import android.view.Window
+import android.view.WindowManager
+import androidx.appcompat.app.AppCompatActivity
+import ie.jim.hillfort.R
+//import ie.jim.hillfort.R.layout
+import ie.jim.hillfort.main.MainApp
+
+class SplashActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        makeFullScreen()
+        setContentView(R.layout.activity_splash)
+        // Using a handler to delay loading the MainActivity
+        Handler().postDelayed({
+            // Start activity
+            startActivity(Intent(this, HillfortListActivity::class.java))
+            // Animate the loading of new activity
+//            overridePendingTransition(ie.jim.hillfort.R.anim.fade_in, android.R.anim.fade_out)
+//            overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out)
+            // Close this activity
+            finish()
+        }, 2000)
+    }
+
+    private fun makeFullScreen() {
+        // Remove Title
+        requestWindowFeature(Window.FEATURE_NO_TITLE)
+        // Make Fullscreen
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+            WindowManager.LayoutParams.FLAG_FULLSCREEN)
+        // Hide the toolbar
+        supportActionBar?.hide()
+    }
+}

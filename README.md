@@ -16,3 +16,7 @@ https://kotlinlang.org/docs/reference/properties.html#late-initialized-propertie
 
 Login:
 https://github.com/kotlindroider/Kotlin-Login-Sample/blob/master/app/src/main/java/com/kotlindroider/devaj/LoginActivity.kt
+
+https://medium.com/@temidjoy/a-simple-local-unit-test-for-a-login-system-on-android-studio-560ff5fd4e39
+
+http://hackpundit.com/simple-login-android-app/

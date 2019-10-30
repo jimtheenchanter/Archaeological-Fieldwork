@@ -12,6 +12,7 @@ data class HillfortModel (
     var image: String = "",
     var lat : Double = 0.0,
     var lng: Double = 0.0,
+//    val visited: Boolean = false,
     var zoom: Float = 0f)
 : Parcelable
 

@@ -71,36 +71,45 @@
 
                 <Button
                     android:id="@+id/chooseImage"
-                    android:layout_width="match_parent"
+                    android:layout_width="379dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:background="@color/colorAccent"
-                    android:paddingBottom="8dp"
+                    android:icon="@mipmap/ic_launcher_round"
                     android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
                     android:text="@string/button_addImage"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp" />
 
                 <ImageView
                     android:id="@+id/hillfortImage"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:contentDescription="Image of hillfort"
                     android:paddingBottom="0dp"
                     android:paddingTop="0dp"
                     app:srcCompat="@mipmap/ic_launcher"/>
 
                 <Button
                     android:id="@+id/hillfortLocation"
-                    android:layout_width="match_parent"
+                    android:layout_width="384dp"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:background="@color/colorAccent"
-                    android:paddingBottom="8dp"
                     android:paddingTop="8dp"
+                    android:paddingBottom="8dp"
                     android:stateListAnimator="@null"
                     android:text="@string/button_location"
                     android:textColor="@color/colorPrimary"
-                    android:textSize="16sp"/>
+                    android:textSize="16sp" />
+
+                <CheckBox
+                    android:id="@+id/visitedHillfort"
+                    android:layout_width="50px"
+                    android:layout_height="50px"
+                    android:paddingTop="8dp"
+                    android:paddingLeft="4dp" />
 
                 <Button
                     android:id="@+id/btnAdd"
