@@ -4,6 +4,7 @@ package ie.jim.hillfort.main
 
 import android.app.Application
 import ie.jim.hillfort.HillfortStore
+import ie.jim.hillfort.UserStore
 import ie.jim.hillfort.models.HillfortJSONStore
 import ie.jim.hillfort.models.HillfortMemStore
 import ie.jim.hillfort.models.HillfortModel
@@ -16,16 +17,18 @@ class MainApp : Application(), AnkoLogger {
 
 //    val hillforts = ArrayList<HillfortModel>()
       lateinit var hillforts : HillfortStore
-    var users = ArrayList<UserModel>()
+//    var users = ArrayList<UserModel>()
+      lateinit var users : UserStore
 
     override fun onCreate() {
         super.onCreate()
         hillforts = HillfortJSONStore(applicationContext)
+        users = UserJSONStore(applicationContext)
 //        users = UserJSONStore(applicationContext)
         info("Hillfort Here! started")
-       users.add(UserModel(1, "homer@simpson.com", "secret", 1))
-        users.add(UserModel(2, "homer@simpson.com", "secret", 4))
-        users.add(UserModel(3, "homer@simpson.com", "secret", 5))
+        users.create(UserModel(1, "homer@simpson.com", "secret", 1))
+        users.create(UserModel(2, "homer@simpson.com", "secret", 4))
+        users.create(UserModel(3, "homer@simpson.com", "secret", 5))
         hillforts.create(HillfortModel(1, "Jim's Hillfort", "Like a castle" , "", 0.0, 0.0 ))
         hillforts.create(HillfortModel(2, "Shay' Hillfort", "Like a swamp" , "", 0.0, 0.0 ))
         hillforts.create(HillfortModel(3, "Paula's Hillfort", "Like a supermarket" , "", 0.0, 0.0 ))

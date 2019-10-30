@@ -9,5 +9,5 @@ data class UserModel (
     var id: Long = 0,
     var email: String = "",
     var password: String = "",
-    var vistedforts: Int = 0)
+    var visitedforts: Int = 0)
     : Parcelable
