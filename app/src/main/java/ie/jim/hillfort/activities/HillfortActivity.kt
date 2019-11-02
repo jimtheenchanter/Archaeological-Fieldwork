@@ -19,15 +19,15 @@ import org.jetbrains.anko.intentFor
 import org.jetbrains.anko.toast
 
 class HillfortActivity : AppCompatActivity(), AnkoLogger {
+
     // creating a hillfort as a class member:
     var hillfort = HillfortModel()
     //reference the MainApp object.
    lateinit var app : MainApp
-     // generate id for the image request function so activity can confirm
-     // when complete to avoid confusion
+     // generate id for the image request function so activity can confirm when complete to avoid confusion
      val IMAGE_REQUEST = 1
 
-     val LOCATION_REQUEST = 2
+    val LOCATION_REQUEST = 2
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -46,9 +46,10 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             hillfortName.setText(hillfort.title)
             description.setText(hillfort.description)
             hillfortImage.setImageBitmap(readImageFromPath(this, hillfort.image)) //image to appear in edit mode
-
+//            if (hillfort.image != null) {
                 chooseImage.setText(R.string.change_image)
 //            }
+//      visitedHillfort.setText(hi)
             btnAdd.setText(R.string.save_hillfort)  // change button text if editing an existing hillfort
 //            chooseImage.setText(R.string.change_image) // change button text if editing an existing hillfort
 
@@ -77,6 +78,11 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
             }
 
 
+//        hillfortLocation.setOnClickListener {
+//            val location = Location(52.245696, -7.139102, 15f)
+//            startActivity (intentFor<MapActivity>().putExtra("location", location))
+//        }
+
         hillfortLocation.setOnClickListener {
             val location = Location(52.245696, -7.139102, 15f)
             if (hillfort.zoom != 0f) {
@@ -99,17 +105,16 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
         when (item?.itemId) {
             R.id.item_cancel -> {
                 finish()
-            }
+            }  R.id.item_delete -> {
+            app.hillforts.delete(this.hillfort) //calls delete function from Hillfort
+            info { " Hillfort Deleted" }
+            finish()
+        }
         }
         return super.onOptionsItemSelected(item)
 
-        when (item?.itemId) {
+         }
 
-            R.id.item_delete -> {
-                          }
-        }
-        }
-//    }
 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
