@@ -28,9 +28,6 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
      val IMAGE_REQUEST = 1
 
     val LOCATION_REQUEST = 2
-    // var location = Location(52.245696, -7.139102, 15f)  //no longer a class member
-
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -108,17 +105,16 @@ class HillfortActivity : AppCompatActivity(), AnkoLogger {
         when (item?.itemId) {
             R.id.item_cancel -> {
                 finish()
-            }
+            }  R.id.item_delete -> {
+            app.hillforts.delete(this.hillfort) //calls delete function from Hillfort
+            info { " Hillfort Deleted" }
+            finish()
+        }
         }
         return super.onOptionsItemSelected(item)
 
-        when (item?.itemId) {
+         }
 
-            R.id.item_delete -> {
-                       finish()    }
-        }
-        }
-//    }
 
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
