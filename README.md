@@ -4,14 +4,12 @@
 # Hillfort Here
 <p>GPS based Android field work app for archaeology, culture & history students. </p>
 
-# Archaeological-Fieldwork
-<p>College Assignment for map based android app for locating and updating archaeological hillforts.
-Users can view existing hillforts and visit the sites using coordinates and GoogleMaps API.
+
+<p>College Assignment for Kotlin based android app for with interactive GoogleMaps API for locating and updating archaeological hillforts.
+Users can view existing hillforts and visit the sites using coordinates and GoogleMaps API. Using their cameras technology
+the hillforts can be updated with uptodate images.
 </p>
 
-
-
-	
 	
 ### FEATURES:
    <ul>
