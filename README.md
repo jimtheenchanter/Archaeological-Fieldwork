@@ -10,6 +10,8 @@ Users can view existing hillforts and visit the sites using coordinates and Goog
 the hillforts can be updated with uptodate images.
 </p>
 
+
+
 	
 ### FEATURES:
    <ul>
@@ -23,7 +25,11 @@ the hillforts can be updated with uptodate images.
   </ul>
 
 
-# Research and tutorials
+## BACK END
+Created from Placemark college labwork. This Android app was developed using Kotlin on Android Studio.
+
+
+### Research and tutorials
 https://tutors-design.netlify.com/lab/wit-hdip-comp-sci-2018-mobile-app-dev.netlify.com/unit-02-android-programming/
 https://developer.android.com/guide/topics/providers/document-provider
 Splash Screen

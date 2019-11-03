@@ -16,5 +16,7 @@
     <string name="menu_logout">Log out</string>
     <string name="menu_settings">Settings</string>
     <string name="menu_stats">Statistics</string>
-
+    <string name="edtPassword">secret</string>
+    <string name="edtUsername">homer@simpson.com</string>
+    <string name="login" >Log In</string>
 </resources>
