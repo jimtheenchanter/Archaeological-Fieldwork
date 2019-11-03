@@ -44,4 +44,6 @@ https://github.com/kotlindroider/Kotlin-Login-Sample/blob/master/app/src/main/ja
 
 https://medium.com/@temidjoy/a-simple-local-unit-test-for-a-login-system-on-android-studio-560ff5fd4e39
 
-http://hackpundit.com/simple-login-android-app/
+http://hackpundit.com/simple-login-android-app/s
+
+https://www.javatpoint.com/kotlin-android-web-service

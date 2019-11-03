@@ -71,7 +71,7 @@
 
                 <Button
                     android:id="@+id/chooseImage"
-                    android:layout_width="379dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:background="@color/colorAccent"
@@ -93,7 +93,7 @@
 
                 <Button
                     android:id="@+id/hillfortLocation"
-                    android:layout_width="384dp"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="16dp"
                     android:background="@color/colorAccent"
@@ -108,6 +108,7 @@
                     android:id="@+id/visitedHillfort"
                     android:layout_width="50px"
                     android:layout_height="50px"
+                    android:text="@string/visited"
                     android:paddingTop="8dp"
                     android:paddingLeft="4dp" />
 

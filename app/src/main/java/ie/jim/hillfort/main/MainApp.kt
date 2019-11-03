@@ -24,16 +24,16 @@ class MainApp : Application(), AnkoLogger {
         super.onCreate()
         hillforts = HillfortJSONStore(applicationContext)
         users = UserJSONStore(applicationContext)
-//        users = UserJSONStore(applicationContext)
         info("Hillfort Here! started")
         users.create(UserModel(1, "homer@simpson.com", "secret", 1))
         users.create(UserModel(2, "homer@simpson.com", "secret", 4))
         users.create(UserModel(3, "homer@simpson.com", "secret", 5))
-        hillforts.create(HillfortModel(1, "Jim's Hillfort", "Like a castle" , "", 0.0, 0.0 ))
-        hillforts.create(HillfortModel(2, "Shay' Hillfort", "Like a swamp" , "", 0.0, 0.0 ))
-        hillforts.create(HillfortModel(3, "Paula's Hillfort", "Like a supermarket" , "", 0.0, 0.0 ))
-        hillforts.create(HillfortModel(4, "Lucy's Hillfort", "Like a dump" , "", 0.0, 0.0 ))
-        hillforts.create(HillfortModel(5, "Flash's Hillfort", "Like a giant tin of ancient tuna" , "", 0.0, 0.0 ))
-
+        info("User database loaded")
+        hillforts.create(HillfortModel(1, "Caherdrinny Hillfort", "Contour Fort" , "https://res.cloudinary.com/jimtheenchanter/image/upload/v1572713063/hillforthere-splash-readme.jpg", 52.249103, -8.298497, 0f ))
+        hillforts.create(HillfortModel(2, "Mooghaun Hillfort", "Pile of rocks" , "", 52.782556, -8.879239, 0f ))
+        hillforts.create(HillfortModel(3, "Allihies ", "Promontory fort" , "", 51.64829, -10.05654, 0f ))
+        hillforts.create(HillfortModel(4, "Ardaturrish More", "Promontory fort" , "", 51.71894, -9.4917, 0f ))
+        hillforts.create(HillfortModel(5, "Ballycotten", "Contour fort" , "", 52.96108, -9.39171, 0f ))
+        info("Hillfort database loaded")
     }
 }

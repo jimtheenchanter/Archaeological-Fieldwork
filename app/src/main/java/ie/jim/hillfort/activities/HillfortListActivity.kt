@@ -29,9 +29,6 @@ class HillfortListActivity : AppCompatActivity(), AnkoLogger, HillfortListener {
 
         val layoutManager = LinearLayoutManager(this)
         recyclerView.layoutManager = layoutManager
-//        recyclerView.adapter = HillfortAdapter(app.hillforts)
-//        recyclerView.adapter = HillfortAdapter(app.hillforts.findAll())
-//        recyclerView.adapter = HillfortAdapter(app.hillforts.findAll(), this)
         loadHillforts()
 
     }

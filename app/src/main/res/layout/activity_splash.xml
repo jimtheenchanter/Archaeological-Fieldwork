@@ -39,6 +39,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:background="@color/colorPrimary"
         tools:context="ie.jim.hillfort.activities.SplashActivity">
 
 
@@ -47,7 +48,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:contentDescription="@string/app_name"
-        android:src="@mipmap/ic_launcher"
+        android:src="@mipmap/hillforthere_logo"
         app:layout_constraintBottom_toTopOf="@+id/textView"
         app:layout_constraintDimensionRatio=""
         app:layout_constraintEnd_toEndOf="parent"

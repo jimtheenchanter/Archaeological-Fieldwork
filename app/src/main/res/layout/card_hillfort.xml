@@ -35,13 +35,29 @@
             android:layout_below="@id/hillfortName"
             android:layout_toEndOf="@+id/imageIcon"/>
 
+
+<!--        android:layout_alignParentStart="true" -->
+        <!--            android:layout_alignParentTop="true" -->
+
+        <ImageView
+            android:id="@+id/location"
+            android:src="@mipmap/ic_menu_mylocation"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_toRightOf="@+id/imageIcon"
+            android:layout_below="@+id/description"
+            android:layout_toLeftOf="@+id/longitude"
+            android:contentDescription="@string/change_image" />
+
+
         <TextView
             android:id="@+id/longitude"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@id/description"
             android:layout_toRightOf="@+id/imageIcon"
-            android:textSize="5sp"/>
+            android:textSize="10sp"
+            android:contentDescription="@string/longitude:"/>
 
 
         <TextView
@@ -50,7 +66,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@id/description"
             android:layout_toRightOf="@+id/longitude"
-            android:textSize="5sp"/>
+            android:textSize="10sp"/>
 
     </RelativeLayout>
 </androidx.cardview.widget.CardView>
