@@ -10,7 +10,9 @@ Users can view existing hillforts and visit the sites using coordinates and Goog
 the hillforts can be updated with uptodate images.
 </p>
 
+## GitHub Repository
 
+https://github.com/jimtheenchanter/Archaeological-Fieldwork/tree/user-feature
 
 	
 ### FEATURES:

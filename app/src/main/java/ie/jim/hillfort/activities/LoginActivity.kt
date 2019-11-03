@@ -1,13 +1,10 @@
 package ie.jim.hillfort.activities
 
 
-////
-//import android.app.Activity
-//
-import android.content.Intent
+
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import android.util.Log
+import android.content.Intent
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -43,8 +40,8 @@ class LoginActivity : AppCompatActivity() {
         _loginButton!!.isEnabled = false
         val email = _emailText!!.text.toString()
         val password = _passwordText!!.text.toString()
-//        startActivityForResult
-        if (email == "homer@simpson.com") {
+//     startActivityForResult(<HillfortListActivity>)
+             if (email == "homer@simpson.com") {
 //            finish()
         }
     }

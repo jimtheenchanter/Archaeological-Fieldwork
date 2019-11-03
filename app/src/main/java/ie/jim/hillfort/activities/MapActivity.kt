@@ -27,7 +27,7 @@ class MapActivity : AppCompatActivity(), OnMapReadyCallback, GoogleMap.OnMarkerD
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_map) //display  the map layout
         location = intent.extras?.getParcelable<Location>("location")!! //set  location  from model
-//        hillfort = intent.extras?.getParcelable<HillfortModel>("hillfort")!!
+
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         val mapFragment = supportFragmentManager
             .findFragmentById(R.id.map) as SupportMapFragment
