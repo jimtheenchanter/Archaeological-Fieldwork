@@ -1,10 +1,37 @@
-# Archaeological-Fieldwork
-College Assignment for map based android app for locating and updating archaeological hillforts.
+
+<img src="https://res.cloudinary.com/jimtheenchanter/image/upload/v1572713063/hillforthere-splash-readme.jpg" />
 
 # Hillfort Here
-Fieldwork app for archaeological students/
+<p>GPS based Android field work app for archaeology, culture & history students. </p>
 
-# Research and tutorials
+
+<p>College Assignment for Kotlin based android app for with interactive GoogleMaps API for locating and updating archaeological hillforts.
+Users can view existing hillforts and visit the sites using coordinates and GoogleMaps API. Using their cameras technology
+the hillforts can be updated with uptodate images.
+</p>
+
+## GitHub Repository
+
+https://github.com/jimtheenchanter/Archaeological-Fieldwork/tree/user-feature
+
+	
+### FEATURES:
+   <ul>
+    <li>Load existing Hillforts or ancient site
+	<li>Visit sites Using GPS
+	<li>Upload or update Photo
+	<li>Edit your own desciption
+	<li>Mark your progress with visited checkbox
+    <li> Update GPS with GoogleMaps
+     
+  </ul>
+
+
+## BACK END
+Created from Placemark college labwork. This Android app was developed using Kotlin on Android Studio.
+
+
+### Research and tutorials
 https://tutors-design.netlify.com/lab/wit-hdip-comp-sci-2018-mobile-app-dev.netlify.com/unit-02-android-programming/
 https://developer.android.com/guide/topics/providers/document-provider
 Splash Screen
@@ -19,4 +46,6 @@ https://github.com/kotlindroider/Kotlin-Login-Sample/blob/master/app/src/main/ja
 
 https://medium.com/@temidjoy/a-simple-local-unit-test-for-a-login-system-on-android-studio-560ff5fd4e39
 
-http://hackpundit.com/simple-login-android-app/
+http://hackpundit.com/simple-login-android-app/s
+
+https://www.javatpoint.com/kotlin-android-web-service
